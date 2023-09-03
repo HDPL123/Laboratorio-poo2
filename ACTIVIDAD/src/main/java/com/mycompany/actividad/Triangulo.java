@@ -1,7 +1,7 @@
 package com.mycompany.actividad;
 
-// Clase TriÃ¡ngulo
-class Triangulo extends FiguraGeometrica {
+// Clase Triangulo
+class Triangulo extends FiguraGeometrica implements Shape {
     private String nombre;
     private Punto punto1;
     private Punto punto2;
@@ -74,10 +74,17 @@ class Triangulo extends FiguraGeometrica {
     
     return ladosIguales;
     }
-
-
     @Override
     public String toString() {
-        return "TriÃ¡ngulo: " + nombre + " tiene 3 Puntos: " + punto1.toString() + "," + punto2.toString() + "," + punto3.toString();
+        return "Triangulo: " + nombre + " tiene 3 Puntos: " + punto1.toString() + "," + punto2.toString() + "," + punto3.toString();
+    }
+    @Override
+    public double obtenerPerimetro() {
+        // Implementa el cálculo del perímetro del triángulo
+        // Puedes hacerlo utilizando la suma de las longitudes de sus lados
+        double lado1 = punto1.calcularDistancia(punto2);
+        double lado2 = punto2.calcularDistancia(punto3);
+        double lado3 = punto3.calcularDistancia(punto1);
+        return lado1 + lado2 + lado3;
     }
 }
